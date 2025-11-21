@@ -1,4 +1,4 @@
-/* Başlığın dikkat çekmesi için titreme animasyonu */
+/* Başlığın dikkat çekmesi için titreme animasyonunu koruduk */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
@@ -7,22 +7,23 @@
 
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* Arka planı koruduk (parlak) */
     background: linear-gradient(45deg, #ff00ff, #00ffff);
     color: #000000;
     margin: 0;
-    padding: 10px; /* Kenar boşluklarını mobil için azalt */
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    box-sizing: border-box; /* Padding'in genişliğe dahil olmasını sağla */
+    box-sizing: border-box;
 }
 
 .container {
     width: 100%;
     max-width: 700px;
-    background-color: #ffcc00;
-    padding: 20px; /* Padding'i mobil için biraz azalt */
+    background-color: #ffcc00; /* Parlak sarı arka planı koruduk */
+    padding: 20px;
     border: 10px dashed #ff0000;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
@@ -30,37 +31,44 @@ body {
 }
 
 h1 {
-    font-size: 2.5em; /* Mobil için font boyutunu biraz küçült */
-    color: #8b00ff;
+    font-size: 2.5em; 
+    /* OKUNABİLİRLİK İYİLEŞTİRMESİ: Rengi koyu siyaha çevirdik */
+    color: #000000; 
     margin-bottom: 15px;
-    letter-spacing: 3px; /* Mobil için harf aralığını biraz azalt */
-    text-shadow: 3px 3px 0px #ffffff;
+    letter-spacing: 3px;
+    /* OKUNABİLİRLİK İYİLEŞTİRMESİ: Beyaz dış çizgi kalınlaştırıldı */
+    text-shadow: 4px 4px 0px #ffffff, -4px -4px 0px #ffffff; 
     animation: shake 0.5s infinite;
 }
 
 h2 {
-    font-size: 1.5em; /* Mobil için alt başlık boyutunu küçült */
+    font-size: 1.5em; 
     color: #ff0000;
     margin-bottom: 20px;
     background-color: #ffffff;
     padding: 5px 10px;
     display: inline-block;
     border: 3px solid #ffcc00;
+    text-transform: uppercase;
 }
 
 .foto {
     margin-top: 15px;
-    /* Fotoğrafları yan yana göstermek yerine alt alta sırala (mobil için ideal) */
     display: flex; 
-    flex-direction: column; /* Mobil için dikey sıralama */
-    align-items: center; /* Ortalamak için */
+    flex-direction: column; 
+    align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    margin: 10px 0;
+    width: 90%; 
+    max-width: 300px;
 }
 
 .meme-img {
-    width: 90%; /* Mobil cihazlarda genişliğin %90'ını kapla */
-    max-width: 300px; 
+    width: 100%; 
     height: auto;
-    margin: 10px 0; /* Üstte ve altta daha fazla boşluk */
     border-radius: 50%;
     object-fit: cover;
     border: 8px solid #00ff00;
@@ -69,15 +77,36 @@ h2 {
 }
 
 .meme-img:hover {
-    transform: rotate(10deg) scale(1.05); /* Mobil cihazlarda daha az büyütme (daha az kayma riski) */
+    transform: rotate(10deg) scale(1.05);
     filter: invert(100%);
 }
 
+.caption {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    /* OKUNABİLİRLİK İYİLEŞTİRMESİ: Renkler korunurken font kalınlaştırıldı */
+    background-color: #ff00ff;
+    color: #ffffff; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.2em; /* Biraz büyüt */
+    font-weight: 900; /* Ekstra kalın font */
+    border: 3px dashed #000000; /* Çerçeveyi kalınlaştır */
+    white-space: nowrap;
+}
+
 .warning-text {
-    color: #ff0000;
-    font-size: 1em;
-    margin-top: 15px;
-    font-weight: bold;
+    /* OKUNABİLİRLİK İYİLEŞTİRMESİ: Rengi siyaha çevirildi */
+    color: #000000; 
+    font-size: 1.2em; /* Biraz büyüt */
+    margin-top: 25px;
+    font-weight: 900; /* Ekstra kalın font */
+    /* OKUNABİLİRLİK İYİLEŞTİRMESİ: Arka plan kutusu eklendi */
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 10px;
+    border-radius: 5px;
     text-decoration: underline;
     animation: shake 2s infinite alternate;
 }
@@ -89,16 +118,17 @@ h2 {
     }
 
     h1 {
-        font-size: 3.5em; /* Büyük ekranlarda eski abartılı boyuta dön */
+        font-size: 3.5em;
     }
 
     .foto {
-        flex-direction: row; /* Büyük ekranlarda yan yana sırala */
+        flex-direction: row; 
         justify-content: center;
     }
 
-    .meme-img {
-        width: 45%; /* Yan yana durması için genişliği ayarla */
+    .image-wrapper {
+        width: 45%; 
         margin: 15px 10px;
+        max-width: none;
     }
 }
