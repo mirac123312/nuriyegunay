@@ -1,0 +1,78 @@
+/* Başlığın dikkat çekmesi için titreme animasyonu */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Abartılı font */
+    background: linear-gradient(45deg, #ff00ff, #00ffff); /* Parlak, göz yoran gradyan */
+    color: #000000;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    background-color: #ffcc00; /* Parlak sarı arka plan */
+    padding: 40px;
+    border: 10px dashed #ff0000; /* Kırmızı, kesikli, abartılı çerçeve */
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8); /* Kırmızı parlak gölge */
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: #8b00ff; /* Parlak mor */
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    text-shadow: 4px 4px 0px #ffffff; /* Beyaz dış çizgi */
+    animation: shake 0.5s infinite; /* Titreme efektini uygula */
+}
+
+h2 {
+    font-size: 2em;
+    color: #ff0000; /* Kırmızı */
+    margin-bottom: 25px;
+    background-color: #ffffff; /* Beyaz zemin vurgusu */
+    padding: 5px 10px;
+    display: inline-block;
+    border: 3px solid #ffcc00;
+}
+
+.foto {
+    margin-top: 30px;
+}
+
+.meme-img {
+    width: 45%; 
+    max-width: 300px; 
+    height: auto;
+    margin: 15px 10px;
+    border-radius: 50%; /* Resimleri dairesel yap */
+    object-fit: cover;
+    border: 8px solid #00ff00; /* Neon yeşil çerçeve */
+    box-shadow: 0 0 20px #00ff00; /* Yeşil parlaklık */
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.meme-img:hover {
+    transform: rotate(10deg) scale(1.1); /* Üzerine gelince döndür ve büyüt */
+    filter: invert(100%); /* Renkleri tersine çevirerek şaşırtıcı bir efekt ver */
+}
+
+.warning-text {
+    color: #ff0000;
+    font-size: 1.2em;
+    margin-top: 20px;
+    font-weight: bold;
+    text-decoration: underline; /* Altı çizili ve kalın */
+    animation: shake 2s infinite alternate; /* Uyarı metnine de titreme */
+}
