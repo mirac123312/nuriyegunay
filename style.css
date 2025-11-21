@@ -6,73 +6,99 @@
 }
 
 body {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Abartılı font */
-    background: linear-gradient(45deg, #ff00ff, #00ffff); /* Parlak, göz yoran gradyan */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
     color: #000000;
     margin: 0;
-    padding: 20px;
+    padding: 10px; /* Kenar boşluklarını mobil için azalt */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    box-sizing: border-box; /* Padding'in genişliğe dahil olmasını sağla */
 }
 
 .container {
     width: 100%;
     max-width: 700px;
-    background-color: #ffcc00; /* Parlak sarı arka plan */
-    padding: 40px;
-    border: 10px dashed #ff0000; /* Kırmızı, kesikli, abartılı çerçeve */
+    background-color: #ffcc00;
+    padding: 20px; /* Padding'i mobil için biraz azalt */
+    border: 10px dashed #ff0000;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8); /* Kırmızı parlak gölge */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
     text-align: center;
 }
 
 h1 {
-    font-size: 3.5em;
-    color: #8b00ff; /* Parlak mor */
-    margin-bottom: 20px;
-    letter-spacing: 5px;
-    text-shadow: 4px 4px 0px #ffffff; /* Beyaz dış çizgi */
-    animation: shake 0.5s infinite; /* Titreme efektini uygula */
+    font-size: 2.5em; /* Mobil için font boyutunu biraz küçült */
+    color: #8b00ff;
+    margin-bottom: 15px;
+    letter-spacing: 3px; /* Mobil için harf aralığını biraz azalt */
+    text-shadow: 3px 3px 0px #ffffff;
+    animation: shake 0.5s infinite;
 }
 
 h2 {
-    font-size: 2em;
-    color: #ff0000; /* Kırmızı */
-    margin-bottom: 25px;
-    background-color: #ffffff; /* Beyaz zemin vurgusu */
+    font-size: 1.5em; /* Mobil için alt başlık boyutunu küçült */
+    color: #ff0000;
+    margin-bottom: 20px;
+    background-color: #ffffff;
     padding: 5px 10px;
     display: inline-block;
     border: 3px solid #ffcc00;
 }
 
 .foto {
-    margin-top: 30px;
+    margin-top: 15px;
+    /* Fotoğrafları yan yana göstermek yerine alt alta sırala (mobil için ideal) */
+    display: flex; 
+    flex-direction: column; /* Mobil için dikey sıralama */
+    align-items: center; /* Ortalamak için */
 }
 
 .meme-img {
-    width: 45%; 
+    width: 90%; /* Mobil cihazlarda genişliğin %90'ını kapla */
     max-width: 300px; 
     height: auto;
-    margin: 15px 10px;
-    border-radius: 50%; /* Resimleri dairesel yap */
+    margin: 10px 0; /* Üstte ve altta daha fazla boşluk */
+    border-radius: 50%;
     object-fit: cover;
-    border: 8px solid #00ff00; /* Neon yeşil çerçeve */
-    box-shadow: 0 0 20px #00ff00; /* Yeşil parlaklık */
+    border: 8px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
     transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .meme-img:hover {
-    transform: rotate(10deg) scale(1.1); /* Üzerine gelince döndür ve büyüt */
-    filter: invert(100%); /* Renkleri tersine çevirerek şaşırtıcı bir efekt ver */
+    transform: rotate(10deg) scale(1.05); /* Mobil cihazlarda daha az büyütme (daha az kayma riski) */
+    filter: invert(100%);
 }
 
 .warning-text {
     color: #ff0000;
-    font-size: 1.2em;
-    margin-top: 20px;
+    font-size: 1em;
+    margin-top: 15px;
     font-weight: bold;
-    text-decoration: underline; /* Altı çizili ve kalın */
-    animation: shake 2s infinite alternate; /* Uyarı metnine de titreme */
+    text-decoration: underline;
+    animation: shake 2s infinite alternate;
+}
+
+/* Tablet ve Masaüstü Görünümü (600px üzeri ekranlar için) */
+@media (min-width: 600px) {
+    .container {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 3.5em; /* Büyük ekranlarda eski abartılı boyuta dön */
+    }
+
+    .foto {
+        flex-direction: row; /* Büyük ekranlarda yan yana sırala */
+        justify-content: center;
+    }
+
+    .meme-img {
+        width: 45%; /* Yan yana durması için genişliği ayarla */
+        margin: 15px 10px;
+    }
 }
